@@ -15,6 +15,7 @@ def index(request):
     return render(request,'listings/listings.html',contex)
 
 def listing(request,listing_id):
+    # TODO: create a signle page view
     return render(request, 'listings/listing.html')
 
 def search(request):
