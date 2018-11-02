@@ -1,8 +1,18 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
-
+from .models import Listing
 # Create your views here.
 def index(request):
-    return render(request,'listings/listings.html')
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    paginator = Paginator(listings,1)
+    page = request.GET.get('page')
+    paged_list = paginator.get_page(page)
+
+    contex = {
+        'listings':paged_list
+    }
+
+    return render(request,'listings/listings.html',contex)
 
 def listing(request,listing_id):
     return render(request, 'listings/listing.html')
