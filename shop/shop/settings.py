@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
+    'accounts.apps.AccountsConfig',
     'django.contrib.humanize',
 ]
 
@@ -131,3 +132,11 @@ os.path.join( BASE_DIR, "shop/static")
 
 MEDIA_URL = '/photos/'
 MEDIA_ROOT = BASE_DIR
+
+
+
+# Messages
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
